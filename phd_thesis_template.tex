@@ -1,0 +1,73 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is derived from a template for "article" from TeXworks 0.4.3 r858 (2011)
+\documentclass[12pt,oneside]{book}
+\include{preamble}
+
+\title{Thesis title}
+\jtitle{Thesis title traslated into Japanese}
+\author{Thesis author}
+\jauthor{Thesis author (in Japanese)}
+\thesisdesc{
+A dissertation submitted to \\%
+(affiliation), \\%
+(organization, university) \\%
+in partial fulfillment of the requirements \\%
+for the degree of \\%
+(degree name) \\%
+written under the supervision of \\%
+Professor Advisor's name%
+}
+
+\date{December 2011}
+
+\begin{document}
+\pagestyle{plain}
+
+\maketitle
+
+\frontmatter
+
+%%% short abstract
+\include{abstract}
+
+%%% ack
+\include{acknowledgements}
+
+%%% contents
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+\pagestyle{fancy}
+\doublespacing
+%or \onehalfspacing
+
+%%% main chapters
+\include{1_introduction}
+
+\include{2_foo}
+
+\include{3_bar}
+
+\include{9_conclusion}
+
+
+%%% bibliography
+\singlespacing
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\fontsize{10pt}{12pt}\selectfont
+
+\nocite{*}
+
+\bibliographystyle{elsarticle-num}
+% modified
+% original is located at:
+% http://www.elsevier.com/framework_authors/misc/elsarticle-num.bst
+\bibliography{bibtexfile}
+
+\end{document}

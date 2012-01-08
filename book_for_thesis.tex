@@ -1,0 +1,61 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\makeatletter
+\long\def\jtitle#1{\def\@jtitle{#1}}
+\def\@jtitle{\@latex@error{No \noexpand\jtitle given}\@ehc}
+\def\jauthor#1{\def\@jauthor{#1}}
+\let\@jauthor\@empty
+\def\thesisdesc#1{\def\@thesisdesc{#1}}
+\let\@thesisdesc\@empty
+
+\renewcommand\maketitle{\par
+  \thispagestyle{empty}
+  \null\vfil
+  \vskip 60\p@
+  \begin{center}%
+    {\sffamily\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\LARGE \@jtitle \par}%
+    \vskip 6em%
+    {\large
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 4.5em%
+    {\large \@thesisdesc \par}%
+    \vskip 4.5em%
+    {\large \@date \par}%
+  \end{center}\par
+  \@thanks
+  \vfil\null
+  \global\let\@jtitle\@empty
+  \global\let\@jauthor\@empty
+  \global\let\@thesisdesc\@empty
+  \global\let\jtitle\relax
+  \global\let\jauthor\relax
+  \global\let\thesisdesc\relax
+}
+
+\renewenvironment{thebibliography}[1]
+     {\chapter*{\bibname}%
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+\setlength{\itemsep}{-0.3em}
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+
+\makeatother
